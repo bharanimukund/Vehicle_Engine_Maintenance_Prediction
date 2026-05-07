@@ -1,7 +1,6 @@
 from huggingface_hub.utils import RepositoryNotFoundError, HfHubHTTPError
 from huggingface_hub import HfApi, create_repo, login
 import os
-from google.colab import userdata
 
 repo_id = "bkrishnamukund/Vehicle-Engine-Maintenance-Prediction"
 repo_type = "dataset"
