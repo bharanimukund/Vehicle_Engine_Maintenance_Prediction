@@ -3,19 +3,11 @@ from huggingface_hub import HfApi, create_repo, login
 import os
 from google.colab import userdata
 
-# Your Hugging Face token created from access keys in write mode
-access_key = userdata.get("HF_TOKEN")
-# Login to Hugging Face platform with the access token
-login(token=access_key)
-
-# Initialize the API
-api = HfApi()
-
 repo_id = "bkrishnamukund/Vehicle-Engine-Maintenance-Prediction"
 repo_type = "dataset"
-print(access_key)
+
 # Initialize API client
-#api = HfApi(token=os.getenv("HF_TOKEN"))
+api = HfApi(token=os.getenv("HF_TOKEN"))
 
 # Step 1: Check if the space exists
 try:

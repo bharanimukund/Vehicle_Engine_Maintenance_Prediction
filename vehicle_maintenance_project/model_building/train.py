@@ -26,13 +26,7 @@ import joblib
 mlflow.set_tracking_uri("http://localhost:5000")
 mlflow.set_experiment("Vehicle_Engine_Maintenance_Prediction_MLOps_Experiment_Tracking")
 
-# Your Hugging Face token created from access keys in write mode
-access_key = userdata.get("HF_TOKEN")
-# Login to Hugging Face platform with the access token
-login(token=access_key)
-
-# Initialize the API
-api = HfApi()
+api = HfApi(token=os.getenv("HF_TOKEN"))
 
 Xtrain_path = "https://huggingface.co/datasets/bkrishnamukund/Vehicle-Engine-Maintenance-Prediction/resolve/main/Xtrain.csv"
 Xtest_path = "https://huggingface.co/datasets/bkrishnamukund/Vehicle-Engine-Maintenance-Prediction/resolve/main/Xtest.csv"
