@@ -3,17 +3,21 @@ name: Vehicle Engine Maintenance Prediction
 on:
   push:
     branches:
-      - main  # Automatically triggers on push to the main branch
+      - main
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
 
   register-dataset:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
@@ -28,11 +32,12 @@ jobs:
   data-prep:
     needs: register-dataset
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
@@ -47,20 +52,21 @@ jobs:
   model-training:
     needs: data-prep
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
       - name: Install Dependencies
         run: pip install -r vehicle_maintenance_project/requirements.txt
 
-      - name: Start MLflow Server (for local logging)
+      - name: Start MLflow Server
         run: |
-          echo "Starting MLflow UI in background (not accessible outside runner)"
+          echo "Starting MLflow UI in background"
           nohup mlflow ui --host 0.0.0.0 --port 5000 > mlflow.log 2>&1 &
           sleep 5
 
@@ -72,11 +78,12 @@ jobs:
   deploy-hosting:
     needs: [model-training, data-prep, register-dataset]
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
