@@ -23,6 +23,10 @@ from sklearn.metrics import (
 import mlflow
 import joblib
 
+# for hugging face space authentication to upload files
+from huggingface_hub import login, HfApi, create_repo
+from huggingface_hub.utils import RepositoryNotFoundError, HfHubHTTPError
+
 mlflow.set_tracking_uri("http://localhost:5000")
 mlflow.set_experiment("Vehicle_Engine_Maintenance_Prediction_MLOps_Experiment_Tracking")
 
