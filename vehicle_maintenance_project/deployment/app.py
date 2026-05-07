@@ -159,8 +159,8 @@ def add_engine_features(df):
 def load_model():
 
     model_path = hf_hub_download(
-        repo_id="YOUR_HF_USERNAME/YOUR_REPO_NAME",
-        filename="vehicle_engine_maintenance_model.joblib"
+        repo_id="bkrishnamukund/Vehicle-Engine-Maintenance-Prediction",
+        filename="best_Vehicle_Engine_Maintenance_Prediction_model_v1.joblib"
     )
 
     return joblib.load(model_path)
