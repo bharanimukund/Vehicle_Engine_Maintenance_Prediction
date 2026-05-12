@@ -134,7 +134,7 @@ with mlflow.start_run(run_name="XGB_Vehicle_Maintenance_CV_Optimized"):
           np.mean(y_test_proba),
           np.max(y_test_proba))
 
-    best_thresh = 0.5
+    best_thresh = 0.52
 
     print("Optimal Threshold (CV-based):", best_thresh)
 

@@ -207,12 +207,12 @@ with st.expander("📘 Feature Description"):
     st.markdown("""
     ### Base Features
 
-    - **Engine rpm** → Engine speed in RPM  
-    - **Lub oil pressure** → Lubrication oil pressure  
-    - **Fuel pressure** → Fuel system pressure  
-    - **Coolant pressure** → Cooling system pressure  
-    - **lub oil temp** → Lubricating oil temperature  
-    - **Coolant temp** → Coolant temperature  
+    - **Engine rpm** → Engine speed in RPM
+    - **Lub oil pressure** → Lubrication oil pressure
+    - **Fuel pressure** → Fuel system pressure
+    - **Coolant pressure** → Cooling system pressure
+    - **lub oil temp** → Lubricating oil temperature
+    - **Coolant temp** → Coolant temperature
 
     ### Engineered Features
 
@@ -243,14 +243,14 @@ with st.form("prediction_form"):
         )
 
         lub_oil_pressure = st.number_input(
-            "Lub Oil Pressure",
+            "Lub Oil Pressure (kPa)",
             min_value=0.0,
             value=3.0,
             step=0.1
         )
 
         fuel_pressure = st.number_input(
-            "Fuel Pressure",
+            "Fuel Pressure (kPa)",
             min_value=0.0,
             value=15.0,
             step=0.1
@@ -259,7 +259,7 @@ with st.form("prediction_form"):
     with col2:
 
         coolant_pressure = st.number_input(
-            "Coolant Pressure",
+            "Coolant Pressure (kPa)",
             min_value=0.0,
             value=2.0,
             step=0.1
@@ -336,7 +336,7 @@ with st.form("prediction_form"):
         if prediction == 1:
 
             st.error(
-                f"⚠️ Engine Fault Detected "
+                f"⚠️ Engine Mainenance or Fault Detected "
                 f"(Probability: {probability:.2f})"
             )
 
